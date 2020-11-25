@@ -2,8 +2,7 @@ package com.example.demo.service;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.OutputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +25,9 @@ public class ReportService {
 	@Autowired
 	UserService userService;
 
-	public String generateReport() throws FileNotFoundException, JRException {
-		String path = "C:/Users/abimael.hernandez/Desktop/";
-		SimpleDateFormat format = new SimpleDateFormat("ddMMYYYYHHmm");
+	public String generateReport(OutputStream out) throws FileNotFoundException, JRException {
+//		String path = "C:/Users/abimael.hernandez/Desktop/";
+//		SimpleDateFormat format = new SimpleDateFormat("ddMMYYYYHHmm");
 		
 		List<User> users = userService.findAll();
 		File file = ResourceUtils.getFile("classpath:demo.jrxml");
@@ -37,8 +36,9 @@ public class ReportService {
 		
 		JasperPrint print = JasperFillManager.fillReport(jasperReport, null, dataSource);
 		
-		JasperExportManager.exportReportToPdfFile(print, path+"demo_" + format.format(new Date()) + ".pdf");
-		
-		return "Report generate in: " + path;
+//		JasperExportManager.exportReportToPdfFile(print, path+"demo_" + format.format(new Date()) + ".pdf");
+		JasperExportManager.exportReportToPdfStream(print, out);
+
+		return "Report generate";
 	}
 }

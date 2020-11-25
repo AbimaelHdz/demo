@@ -1,7 +1,10 @@
 package com.example.demo.controller;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.time.LocalDate;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,9 +63,13 @@ public class UserController {
 	}
 	
 	@RequestMapping("/report")
-	public RedirectView generateReport(RedirectAttributes redirAttrs) throws FileNotFoundException, JRException{
+	public RedirectView generateReport(RedirectAttributes redirAttrs, HttpServletResponse response) throws JRException, IOException{
 		
-		redirAttrs.addFlashAttribute("success", reportService.generateReport());
+		response.setContentType("application/x-download");
+		response.setHeader("Content-Disposition", String.format("attachment; filename=demo.pdf"));
+		OutputStream out = response.getOutputStream();
+		
+		redirAttrs.addFlashAttribute("success", reportService.generateReport(out));
 		return new RedirectView("/demo/index");
 	}
 
