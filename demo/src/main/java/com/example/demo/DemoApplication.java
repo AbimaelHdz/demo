@@ -24,6 +24,15 @@ public class DemoApplication implements CommandLineRunner{
 		template.execute("insert into user values (null,'Juan', 'juan@email.com', current_date, 'ACTIVO', '0 año, 0 meses, 0 dias')");
 		template.execute("insert into user values (null,'Carlos', 'carlos@email.com', '2020-09-04', 'INACTIVO', '0 año, 2 meses, 15 dias')");
 		template.execute("insert into user values (null,'María', 'maria@email.com', '2019-05-20', 'SUSPENDIDO', '1 año, 5 meses, 30 dias')");
+		template.execute("insert into user values (null,'Juan', 'juan@email.com', current_date, 'ACTIVO', '0 año, 0 meses, 0 dias')");
+		template.execute("insert into user values (null,'Carlos', 'carlos@email.com', '2020-09-04', 'INACTIVO', '0 año, 2 meses, 15 dias')");
+		template.execute("insert into user values (null,'María', 'maria@email.com', '2019-05-20', 'SUSPENDIDO', '1 año, 5 meses, 30 dias')");
+		template.execute("insert into user values (null,'Juan', 'juan@email.com', current_date, 'ACTIVO', '0 año, 0 meses, 0 dias')");
+		template.execute("insert into user values (null,'Carlos', 'carlos@email.com', '2020-09-04', 'INACTIVO', '0 año, 2 meses, 15 dias')");
+		template.execute("insert into user values (null,'María', 'maria@email.com', '2019-05-20', 'SUSPENDIDO', '1 año, 5 meses, 30 dias')");
+		template.execute("insert into user values (null,'Juan', 'juan@email.com', current_date, 'ACTIVO', '0 año, 0 meses, 0 dias')");
+		template.execute("insert into user values (null,'Carlos', 'carlos@email.com', '2020-09-04', 'INACTIVO', '0 año, 2 meses, 15 dias')");
+		template.execute("insert into user values (null,'María', 'maria@email.com', '2019-05-20', 'SUSPENDIDO', '1 año, 5 meses, 30 dias')");
 	}
 
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+<meta charset="UTF-8" />
+<link th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+    <div th:fragment="header">
+        <h1>Thymeleaf Fragments sample</h1>
+    </div>
+    <p>Go to the next page to see fragments in action</p>
+    <aside>
+        <div>This is a sidebar</div>
+    </aside>
+    <div class="another">This is another sidebar</div>
+    
+    
+    <div th:fragment="formField (field, value, size)">
+<!-- 	    <div> -->
+	        <label th:for="${#strings.toLowerCase(field)}"> <span
+	            th:text="${field}">Field</span>
+	        </label>
+<!-- 	    </div> -->
+<!-- 	    <div> -->
+	        <input type="text" th:id="${#strings.toLowerCase(field)}"
+	            th:name="${#strings.toLowerCase(field)}" th:value="${value}"
+	            th:size="${size}">
+<!-- 	    </div> -->
+	</div>
+    
+    
+    <footer th:fragment="footer">
+        <a th:href="@{/fragments}">Fragments Index</a> | 
+        <a th:href="@{/markup}">Markup inclussion</a> | 
+        <a th:href="@{/params}">Fragment params</a> | 
+        <a th:href="@{/other}">Other</a>
+        <a th:href="@{/index}">Index</a>
+    </footer>
+    
+</body>
+</html>
